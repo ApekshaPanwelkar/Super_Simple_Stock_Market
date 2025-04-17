@@ -7,6 +7,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
+//models the concept of a stock and provides methods to calculate financial metrics
 public class Stock {
     private String symbol;
     private String type; // common or preferred
@@ -15,6 +16,7 @@ public class Stock {
     private double parValue;
     private List<Trade> trades;
 
+    //constructors are used to create instances of the Stock and Trade classes
     public Stock(String symbol, String type, double lastDividend, double fixedDividend, double parValue) {
         this.symbol = symbol;
         this.type = type;
@@ -49,13 +51,13 @@ public class Stock {
     }
 
     // Method to calculate Volume Weighted Stock Price in last 5 minutes
-    public double calculateVolumeWeightedStockPrice() {
+    public double calculateVolumeWeightedStockPrice() { //the system filters trades based on their timestamps
         LocalDateTime now = LocalDateTime.now();
         double totalTradePriceQuantity = 0;
         int totalQuantity = 0;
 
         for (Trade trade : trades) {
-            if (ChronoUnit.MINUTES.between(trade.getTimestamp(), now) <= 5) {
+            if (ChronoUnit.MINUTES.between(trade.getTimestamp(), now) <= 5) { //to calculate the difference between the current time and the trade's timestamp.
                 totalTradePriceQuantity += trade.getPrice() * trade.getQuantity();
                 totalQuantity += trade.getQuantity();
             }

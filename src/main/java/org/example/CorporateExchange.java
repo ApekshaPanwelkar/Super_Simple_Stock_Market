@@ -2,11 +2,13 @@ package org.example;
 
 import java.util.List;
 
+//Manages the collection of stocks objects and
+//calculates the GBCE All Share Index using the geometric mean of the volume-weighted stock prices.
 public class CorporateExchange {
     private List<Stock> stocks;
 
     public CorporateExchange(List<Stock> stocks) {
-        this.stocks = stocks;
+        this.stocks = stocks;  //Attribute: A list of Stock objects that are part of the stock exchange
     }
 
     // Method to calculate the GBCE All Share Index using geometric mean

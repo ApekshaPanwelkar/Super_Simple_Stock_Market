@@ -1,7 +1,7 @@
 package org.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.AllArgsConstructor; //automatically generates a constructor that takes parameters for all the fields of the Trade class.
+import lombok.Getter;//which automatically generates getter methods for all fields
 
 import java.time.LocalDateTime;
 
@@ -13,3 +13,5 @@ public class Trade {
     private boolean isBuy;
     private double price;
 }
+
+//Stores information about each trade, including timestamp, quantity, buy/sell indicator, and price.
